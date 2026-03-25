@@ -1,6 +1,12 @@
 # AI Pipeline Log Analyzer
 
-AI-powered GitHub Actions log analyzer. Automatically fetches the latest failed pipeline run, extracts the relevant failure lines, and sends them to Claude for analysis — returning a structured plain-English report with what failed, root cause, and suggested fix.
+AI-powered GitHub Actions log analyzer. Automatically fetches the latest failed pipeline run, extracts the relevant failure lines, and sends them to Claude for analysis — returning a structured plain-English report with what failed, root cause, suggested fix, and severity rating. The report automatically opens as a **styled HTML page** in your browser — dark theme, color-coded severity badge, and formatted sections. Also prints a summary to the terminal.
+
+---
+
+## Sample Report
+
+![HTML Report](https://github.com/montanawyethm03-max/pipeline-log-analyzer/raw/main/sample_report.png)
 
 ---
 
@@ -9,11 +15,12 @@ AI-powered GitHub Actions log analyzer. Automatically fetches the latest failed 
 ```
 docker run -e GITHUB_TOKEN=xxx -e REPO=owner/repo wyethmontana/pipeline-log-analyzer
 
-→ Fetches latest failed GitHub Actions run via API
-→ Downloads and extracts the log zip
-→ Filters relevant failure lines
-→ Sends to Claude for AI analysis
-→ Prints structured report + saves pipeline_report_run<N>.md
+-> Fetches latest failed GitHub Actions run via API
+-> Downloads and extracts the log zip
+-> Filters relevant failure lines
+-> Sends to Claude for AI analysis
+-> Prints structured report to terminal
+-> Saves + auto-opens pipeline_report_run<N>.html in browser
 ```
 
 ---
